@@ -1,0 +1,443 @@
+/* ==============================
+   PITCH DECK PRESENTATION STYLE
+   ============================== */
+:root {
+    /* Brand Colors extracted from images */
+    --c-dark: #243542;         /* Dark Slate Blue */
+    --c-darker: #1A2832;       /* Deeper Dark */
+    --c-light: #F4F6F8;        /* White/Grey Background */
+    --c-white: #FFFFFF;        
+    --c-blue-accent: #6C8BAA;  /* Soft Blue for pills, active states */
+    --c-blue-fade: rgba(108, 139, 170, 0.4); /* Translucent blue for huge circles */
+    
+    /* Text */
+    --t-dark: #1E2B36;
+    --t-light: #FFFFFF;
+    --t-grey: #6E7C87;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--c-dark);
+    color: var(--t-dark);
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+/* Scroll Container */
+.presentation-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.presentation-container::-webkit-scrollbar { display: none; }
+
+/* Slide Layout */
+.slide {
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
+    position: relative;
+    padding: 2.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Themes */
+.theme-dark { background-color: var(--c-dark); color: var(--t-light); }
+.theme-light { background-color: var(--c-light); color: var(--t-dark); }
+
+/* ================= HEADER ================= */
+.slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 50; /* Above decor */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+.theme-dark .logo { color: var(--c-white); }
+.theme-light .logo { color: var(--c-dark); }
+
+.logo svg { width: 32px; height: 32px; }
+
+/* Nav Pills */
+.top-nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.pill {
+    text-decoration: none;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid var(--c-blue-accent);
+    color: var(--c-blue-accent);
+    transition: all 0.2s ease;
+}
+.theme-dark .pill { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); }
+.theme-light .pill { border-color: var(--c-blue-accent); color: var(--c-blue-accent); }
+
+.pill.active, .pill:hover {
+    background-color: var(--c-blue-accent);
+    color: var(--c-white);
+    border-color: var(--c-blue-accent);
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: currentColor;
+}
+.theme-dark .hamburger { color: var(--c-white); }
+.theme-light .hamburger { color: var(--c-dark); }
+
+/* ================= FOOTER ================= */
+.slide-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 50;
+}
+.slide-footer.right-only { justify-content: flex-end; }
+
+.website-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--c-blue-accent);
+    border-radius: 50%;
+}
+
+.page-pill {
+    background-color: var(--c-blue-accent);
+    color: var(--c-white);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+}
+
+.partner-logo {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 6px 14px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.partner-logo img {
+    height: 100%;
+    object-fit: contain;
+}
+.pt-aws img {
+    height: 80%; /* AWS logo in SVG sometimes touches boundaries, so scale it a bit */
+    margin-top: 3px;
+}
+
+/* ================= DECORATIONS ================= */
+/* Big Circles for Cover */
+.decor-circle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--c-blue-fade);
+    z-index: 1;
+}
+.circle-1 {
+    width: 600px;
+    height: 600px;
+    left: 8%;
+    top: 25%;
+}
+.circle-2 {
+    width: 350px;
+    height: 350px;
+    left: 30%;
+    top: 55%;
+}
+
+/* Net grid (Background lines) */
+.decor-grid {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+        linear-gradient(45deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(-45deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 150px 150px;
+    z-index: 0;
+}
+.theme-light .decor-grid {
+    background-image: 
+        linear-gradient(45deg, rgba(0,0,0,0.02) 1px, transparent 1px),
+        linear-gradient(-45deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+}
+
+/* Background Color Blocks */
+.bg-block {
+    position: absolute;
+    z-index: 1;
+    background-color: var(--c-dark);
+}
+.top-left-dark {
+    top: 0; left: 0; bottom: 0; width: 30vw;
+}
+.right-light-fade {
+    top: 0; right: 0; bottom: 0; width: 45vw;
+    background: linear-gradient(90deg, var(--c-dark) 0%, rgba(108, 139, 170, 0.2) 100%);
+}
+.left-tall-dark {
+    top: 30vh; left: 0; bottom: 0; width: 35vw;
+}
+.right-top-dark {
+    top: 0; right: 0; height: 40vh; width: 15vw;
+    border-bottom-left-radius: 40px;
+}
+
+/* Images */
+.rounded-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 24px;
+}
+.shadow-img { box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+.blend-edge {
+    -webkit-mask-image: linear-gradient(to right, black 50%, transparent 100%);
+    mask-image: linear-gradient(to right, black 50%, transparent 100%);
+}
+
+/* ================= TYPOGRAPHY & ALIGNMENT ================= */
+.content {
+    flex-grow: 1;
+    display: flex;
+    position: relative;
+    z-index: 10;
+}
+
+/* Cover */
+.cover-layout {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.giant-text {
+    font-size: 6rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+}
+.sub-giant-text {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    margin-top: 0.5rem;
+    letter-spacing: 1px;
+}
+
+/* Two Columns Split (Image Left, Text Right) */
+.split-light-layout {
+    align-items: center;
+    gap: 5rem;
+    padding: 0 2rem;
+}
+.left-pane { flex: 1; position: relative; z-index: 20; }
+.right-pane { flex: 1; position: relative; z-index: 20; }
+
+.section-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+.desc-text {
+    font-size: 1.15rem;
+    color: var(--t-grey);
+    margin-bottom: 0.5rem;
+}
+.text-bold { font-weight: 700; color: var(--c-dark); }
+.theme-dark .desc-text { color: rgba(255,255,255,0.7); }
+.theme-dark .text-bold { color: var(--c-white); }
+.text-white { color: var(--c-white) !important; }
+
+/* Dark split with Pill cards (Slide 3 image) */
+.dark-split-pills {
+    align-items: center;
+    gap: 3rem;
+}
+.w-wider { flex: 1.5; }
+.pill-cards-container {
+    display: flex;
+    gap: 1.5rem;
+}
+.info-pill-card {
+    background-color: var(--c-blue-accent);
+    border-radius: 20px;
+    padding: 1.5rem 1.5rem 2rem 1.5rem;
+    min-width: 280px;
+    color: var(--c-white);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+.info-pill-card .number {
+    background-color: var(--c-white);
+    color: var(--c-dark);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 40px; height: 40px;
+    display: flex; justify-content: center; align-items: center;
+    flex-shrink: 0;
+}
+.info-pill-card h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+.info-pill-card p { font-size: 0.95rem; opacity: 0.9; }
+
+.stagger-1 { margin-top: 0; }
+.stagger-2 { margin-top: 3rem; }
+.stagger-3 { margin-top: 6rem; }
+
+/* List Layout (Slide 4 image) */
+.list-layout {
+    align-items: center;
+    gap: 4rem;
+}
+.stacked-images {
+    position: relative;
+    height: 500px;
+}
+.stacked-images img {
+    position: absolute;
+    width: 350px;
+    height: 250px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+.img-top { top: 0; left: 50px; z-index: 2; }
+.img-bottom { bottom: 0; right: 0; z-index: 1; }
+
+.offset-y { margin-top: -2rem; }
+
+.checklist { list-style: none; display: flex; flex-direction: column; gap: 2rem; }
+.checklist li {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.check-icon {
+    width: 45px; height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--c-dark);
+    color: var(--c-dark);
+    display: flex; justify-content: center; align-items: center;
+    font-weight: 800; font-size: 1.5rem;
+    flex-shrink: 0;
+}
+.text-content h4 { font-size: 1.3rem; font-weight: 700; color: var(--c-dark); }
+.text-content p { font-size: 1rem; color: var(--t-grey); }
+
+.error-list .check-icon { border-color: #e53e3e; color: #e53e3e; }
+.error-list .text-content h4 { color: #e53e3e; }
+
+
+/* Slide 10: Horizontal / Vertical Row layout */
+.align-center {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.mt-up { margin-top: 2rem; flex-grow: 0; }
+
+.card-row-layout {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.vertical-card {
+    background-color: var(--c-white);
+    color: var(--t-dark);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 300px;
+    text-align: center;
+}
+.vertical-card .avatar { width: 80px; height: 80px; border-radius: 50%; }
+.vertical-card.highlight {
+    background-color: var(--c-darker);
+    color: var(--c-white);
+    transform: scale(1.05); /* slightly bigger */
+}
+.icon-top { font-size: 3rem; margin-bottom: 1rem; }
+
+.horizontal-card-list {
+    display: flex; flex-direction: column; gap: 1rem; width: 100%; max-width: 800px;
+}
+.row-step {
+    background-color: rgba(255,255,255,0.05);
+    padding: 1.2rem;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.row-step span {
+    background: var(--c-blue-accent);
+    color: white; width: 30px; height: 30px;
+    border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold;
+}
+.row-step.highlight { border-color: var(--c-blue-accent); background-color: rgba(108, 139, 170, 0.2); }
+
+/* Utility */
+.mt-2 { margin-top: 1rem; } .mt-3 { margin-top: 1.5rem; } .mt-4 { margin-top: 2.5rem; }
+.text-center { text-align: center; }
+.relative-z { z-index: 20; position: relative; }
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .slide { padding: 1.5rem 2rem; }
+    .giant-text { font-size: 4rem; }
+    .split-light-layout, .dark-split-pills, .list-layout { flex-direction: column; gap: 2rem; }
+    .bg-block { display: none; }
+    .pill-cards-container { flex-direction: column; }
+    .stagger-1, .stagger-2, .stagger-3 { margin-top: 0; }
+    .circle-1, .circle-2 { display: none; }
+}
