@@ -11,8 +11,8 @@
 <body>
     <div class="presentation-container" id="presentation">
 
-                <!-- ================= SLIDE 1 ================= -->
-        <section class="slide theme-dark" id="slide-1">
+                <!-- ================= SLIDE 2 ================= -->
+        <section class="slide theme-light" id="slide-2">
             <header class="slide-header" style="display: flex; justify-content: space-between;">
                 <div class="header-left" style="display: flex; align-items: center; gap: 1.5rem;">
                     <div class="partner-logo">
@@ -26,8 +26,8 @@
                 
                 <div class="header-right" style="display: flex; align-items: center; gap: 1.5rem;">
                     <nav class="top-nav">
-                        <a href="#slide-1" class="pill active">Home</a>
-                        <a href="#slide-2" class="pill">Architecture</a>
+                        <a href="#slide-1" class="pill">Home</a>
+                        <a href="#slide-2" class="pill active">Architecture</a>
                         <a href="#slide-12" class="pill">Contact</a>
                         <div class="hamburger"><span></span><span></span><span></span></div>
                     </nav>
@@ -37,18 +37,25 @@
                 </div>
             </header>
 
-            <div class="decor-circle circle-1"></div>
-            <div class="decor-circle circle-2"></div>
-            <div class="decor-grid"></div>
+            <div class="bg-block top-left-dark"></div>
 
-            <div class="content cover-layout">
-                <h1 class="giant-text">EV CHARGING<br>SYSTEM</h1>
-                <h2 class="sub-giant-text">AWS ARCHITECTURE PRESENTATION</h2>
+            <div class="content split-light-layout">
+                <div class="left-pane image-pane">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop" alt="Architecture" class="rounded-image shadow-img">
+                </div>
+                <div class="right-pane text-pane">
+                    <h2 class="section-title">ARCHITECTURE<br>OVERVIEW</h2>
+                    <p class="desc-text mt-3">Kiến trúc hệ thống gồm 3 layer chính được bóc tách độc lập để đảm bảo hiệu năng:</p>
+                    <p class="desc-text text-bold">1. Frontend: CDN + Hosting</p>
+                    <p class="desc-text text-bold">2. Backend: API + Compute</p>
+                    <p class="desc-text text-bold">3. Database & Services</p>
+                    
+                    <p class="desc-text mt-2">Nhờ tích hợp loạt dịch vụ S3, EC2, RDS, Cognito, hệ thống đạt độ tin cậy tuyệt đối.</p>
+                </div>
             </div>
 
-            <footer class="slide-footer">
-                <div class="website-link"><span class="dot"></span> www.ev-system.com</div>
-                <div class="page-pill">Page 01</div>
+            <footer class="slide-footer right-only">
+                <div class="page-pill">Page 02</div>
             </footer>
         </section>
 

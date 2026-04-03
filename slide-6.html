@@ -11,45 +11,34 @@
 <body>
     <div class="presentation-container" id="presentation">
 
-                <!-- ================= SLIDE 1 ================= -->
-        <section class="slide theme-dark" id="slide-1">
+                <!-- ================= SLIDE 6 ================= -->
+        <section class="slide theme-light" id="slide-6">
             <header class="slide-header" style="display: flex; justify-content: space-between;">
                 <div class="header-left" style="display: flex; align-items: center; gap: 1.5rem;">
-                    <div class="partner-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/FPT_logo_2010.svg" alt="FPT University">
-                    </div>
-                    <div class="logo">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        <span>EV SYSTEM PITCH DECK</span>
-                    </div>
+                    <div class="partner-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/FPT_logo_2010.svg" alt="FPT University"></div>
+                    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span>EV SYSTEM</span></div>
                 </div>
-                
                 <div class="header-right" style="display: flex; align-items: center; gap: 1.5rem;">
-                    <nav class="top-nav">
-                        <a href="#slide-1" class="pill active">Home</a>
-                        <a href="#slide-2" class="pill">Architecture</a>
-                        <a href="#slide-12" class="pill">Contact</a>
-                        <div class="hamburger"><span></span><span></span><span></span></div>
-                    </nav>
-                    <div class="partner-logo pt-aws">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS">
-                    </div>
+                    <div class="partner-logo pt-aws"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS"></div>
                 </div>
             </header>
-
-            <div class="decor-circle circle-1"></div>
-            <div class="decor-circle circle-2"></div>
-            <div class="decor-grid"></div>
-
-            <div class="content cover-layout">
-                <h1 class="giant-text">EV CHARGING<br>SYSTEM</h1>
-                <h2 class="sub-giant-text">AWS ARCHITECTURE PRESENTATION</h2>
+            <div class="bg-block top-left-dark"></div>
+            
+            <div class="content split-light-layout">
+                <div class="left-pane image-pane">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600&auto=format&fit=crop" alt="Scaling" class="rounded-image shadow-img">
+                </div>
+                <div class="right-pane text-pane">
+                    <h2 class="section-title">HIGH AVAILABILITY<br>& SCALING</h2>
+                    <p class="desc-text mt-3">Hệ thống "Không bao giờ chết" nhờ các cơ chế đặc thù:</p>
+                    <p class="desc-text text-bold mt-2">Auto Scaling</p>
+                    <p class="desc-text">Scale EC2 theo % lượng traffic, luôn sẵn sàng mùa cao điểm.</p>
+                    <p class="desc-text text-bold mt-2">Multi-AZ Database</p>
+                    <p class="desc-text">Amazon RDS đứng ở 2 Data Center khác nhau (Primary + Standby). Tự động Failover nếu cháy nổ máy chủ.</p>
+                </div>
             </div>
-
-            <footer class="slide-footer">
-                <div class="website-link"><span class="dot"></span> www.ev-system.com</div>
-                <div class="page-pill">Page 01</div>
-            </footer>
+            
+            <footer class="slide-footer right-only"><div class="page-pill">Page 06</div></footer>
         </section>
 
     </div>
