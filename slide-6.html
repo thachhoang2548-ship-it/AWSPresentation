@@ -11,8 +11,8 @@
 <body>
     <div class="presentation-container" id="presentation">
 
-                <!-- ================= SLIDE 6 ================= -->
-        <section class="slide theme-light" id="slide-6">
+                <!-- ================= SLIDE 5 ================= -->
+        <section class="slide theme-dark" id="slide-6">
             <header class="slide-header" style="display: flex; justify-content: space-between;">
                 <div class="header-left" style="display: flex; align-items: center; gap: 1.5rem;">
                     <div class="partner-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/FPT_logo_2010.svg" alt="FPT University"></div>
@@ -22,44 +22,37 @@
                     <div class="partner-logo pt-aws"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS"></div>
                 </div>
             </header>
-            <div class="bg-block top-left-dark"></div>
+
+            <div class="decor-grid"></div>
             
-            <div class="content split-light-layout">
-                <div class="left-pane image-pane">
-                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600&auto=format&fit=crop" alt="Scaling" class="rounded-image shadow-img">
-                </div>
-                <div class="right-pane text-pane">
-                    <h2 class="section-title">HIGH AVAILABILITY<br>& SCALING</h2>
-                    <p class="desc-text mt-3">Hệ thống "Không bao giờ chết" nhờ các cơ chế đặc thù:</p>
-                    <p class="desc-text text-bold mt-2">Auto Scaling</p>
-                    <p class="desc-text">Scale EC2 theo % lượng traffic, luôn sẵn sàng mùa cao điểm.</p>
-                    <p class="desc-text text-bold mt-2">Multi-AZ Database</p>
-                    <p class="desc-text">Amazon RDS đứng ở 2 Data Center khác nhau (Primary + Standby). Tự động Failover nếu cháy nổ máy chủ.</p>
-                </div>
+            <div class="content align-center mt-up">
+                <h2 class="section-title text-center text-white">AUTHENTICATION (NEW)</h2>
             </div>
             
-            <footer class="slide-footer right-only"><div class="page-pill">Page 06</div></footer>
+            <div class="content card-row-layout mt-4">
+                <div class="vertical-card">
+                    <div class="icon-top">🔐</div>
+                    <h3>Amazon Cognito</h3>
+                    <p>Giải pháp xác thực người dùng thay thế hệ thống Auth cũ. Quản lý Session an toàn.</p>
+                </div>
+                <div class="vertical-card highlight">
+                    <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=400&auto=format&fit=crop" class="avatar" alt="Token">
+                    <h3 class="mt-2">JWT Token Flow</h3>
+                    <p>User -> Cognito -> Sinh Token -> Backend Spring Boot verify Signature.</p>
+                </div>
+                <div class="vertical-card">
+                    <div class="icon-top">🛡️</div>
+                    <h3>Secure API</h3>
+                    <p>Bảo mật giao dịch bằng OAuth2 và OIDC chuẩn quốc tế.</p>
+                </div>
+            </div>
+
+            <footer class="slide-footer right-only">
+                <div class="page-pill">Page 06</div>
+            </footer>
         </section>
 
     </div>
-    <script>
-        document.addEventListener('keydown', function(event) {
-            let currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            let currentIndex = 1;
-            if (currentPath.startsWith('slide-')) {
-                let match = currentPath.match(/slide-(\d+).html/);
-                if (match) currentIndex = parseInt(match[1], 10);
-            }
-
-            if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === 'PageDown') {
-                let next = currentIndex + 1;
-                if (next <= 12) window.location.href = "slide-" + next + ".html";
-            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'PageUp') {
-                let prev = currentIndex - 1;
-                if (prev === 1) window.location.href = "index.html";
-                else if (prev > 1) window.location.href = "slide-" + prev + ".html";
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

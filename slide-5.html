@@ -11,39 +11,52 @@
 <body>
     <div class="presentation-container" id="presentation">
 
-                <!-- ================= SLIDE 5 ================= -->
-        <section class="slide theme-dark" id="slide-5">
+                <!-- ================= SLIDE 4 ================= -->
+        <section class="slide theme-light" id="slide-5">
             <header class="slide-header" style="display: flex; justify-content: space-between;">
                 <div class="header-left" style="display: flex; align-items: center; gap: 1.5rem;">
                     <div class="partner-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/FPT_logo_2010.svg" alt="FPT University"></div>
-                    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span>EV SYSTEM</span></div>
+                    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span>EV SYSTEM PITCH DECK</span></div>
                 </div>
                 <div class="header-right" style="display: flex; align-items: center; gap: 1.5rem;">
                     <div class="partner-logo pt-aws"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS"></div>
                 </div>
             </header>
 
-            <div class="decor-grid"></div>
-            
-            <div class="content align-center mt-up">
-                <h2 class="section-title text-center text-white">AUTHENTICATION (NEW)</h2>
-            </div>
-            
-            <div class="content card-row-layout mt-4">
-                <div class="vertical-card">
-                    <div class="icon-top">🔐</div>
-                    <h3>Amazon Cognito</h3>
-                    <p>Giải pháp xác thực người dùng thay thế hệ thống Auth cũ. Quản lý Session an toàn.</p>
+            <div class="bg-block left-tall-dark"></div>
+            <div class="bg-block right-top-dark"></div>
+
+            <div class="content list-layout">
+                <div class="left-pane stacked-images">
+                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop" alt="Code" class="img-top shadow-img">
+                    <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=600&auto=format&fit=crop" alt="Server" class="img-bottom shadow-img">
                 </div>
-                <div class="vertical-card highlight">
-                    <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=400&auto=format&fit=crop" class="avatar" alt="Token">
-                    <h3 class="mt-2">JWT Token Flow</h3>
-                    <p>User -> Cognito -> Sinh Token -> Backend Spring Boot verify Signature.</p>
-                </div>
-                <div class="vertical-card">
-                    <div class="icon-top">🛡️</div>
-                    <h3>Secure API</h3>
-                    <p>Bảo mật giao dịch bằng OAuth2 và OIDC chuẩn quốc tế.</p>
+                
+                <div class="right-pane text-pane offset-y">
+                    <h2 class="section-title">BACKEND FLOW</h2>
+                    <ul class="checklist mt-4">
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <div class="text-content">
+                                <h4>Load Balancer (ALB)</h4>
+                                <p>Phân phối tải thông minh từ Route53 xuống các máy con.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <div class="text-content">
+                                <h4>Auto Scaling EC2</h4>
+                                <p>Tự động co giãn số lượng Instance theo mức độ Traffic.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <div class="text-content">
+                                <h4>Spring Boot & RDS</h4>
+                                <p>Xử lý Logic thanh toán và lưu truy xuất cơ sở dữ liệu.</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -53,24 +66,6 @@
         </section>
 
     </div>
-    <script>
-        document.addEventListener('keydown', function(event) {
-            let currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            let currentIndex = 1;
-            if (currentPath.startsWith('slide-')) {
-                let match = currentPath.match(/slide-(\d+).html/);
-                if (match) currentIndex = parseInt(match[1], 10);
-            }
-
-            if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === 'PageDown') {
-                let next = currentIndex + 1;
-                if (next <= 12) window.location.href = "slide-" + next + ".html";
-            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'PageUp') {
-                let prev = currentIndex - 1;
-                if (prev === 1) window.location.href = "index.html";
-                else if (prev > 1) window.location.href = "slide-" + prev + ".html";
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

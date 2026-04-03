@@ -11,8 +11,8 @@
 <body>
     <div class="presentation-container" id="presentation">
 
-                <!-- ================= SLIDE 12 ================= -->
-        <section class="slide theme-dark" id="slide-12">
+                <!-- ================= SLIDE 11 ================= -->
+        <section class="slide theme-light" id="slide-12">
             <header class="slide-header" style="display: flex; justify-content: space-between;">
                 <div class="header-left" style="display: flex; align-items: center; gap: 1.5rem;">
                     <div class="partner-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/FPT_logo_2010.svg" alt="FPT University"></div>
@@ -23,45 +23,34 @@
                 </div>
             </header>
 
-            <div class="decor-circle circle-1"></div>
-            <div class="decor-circle circle-2" style="bottom: -200px; right: -200px; top:auto; left:auto;"></div>
+            <div class="bg-block left-tall-dark" style="width: 25vw"></div>
             
-            <div class="content cover-layout">
-                <h2 class="sub-giant-text" style="color: #6C8BAA;">THAO TÁC THÀNH CÔNG</h2>
-                <h1 class="giant-text">READY FOR<br>PRODUCTION</h1>
-                <p class="desc-text mt-3" style="color: #fff; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    Hệ thống đã đạt đỉnh về Scalability, Security, Monitoring và High Availability. Xin cảm ơn ban giám khảo và ĐH FPT.
-                </p>
-                <div class="mt-4">
-                    <a href="javascript:void(0)" class="pill active" style="font-size: 1.1rem; padding: 12px 30px;">Q&A Session</a>
+            <div class="content list-layout">
+                <div class="left-pane text-pane text-white relative-z">
+                    <h2 class="section-title text-white">BEFORE AWS</h2>
+                    <ul class="checklist error-list mt-4">
+                        <li><div class="check-icon">X</div><div class="text-content"><h4>No Auth</h4></div></li>
+                        <li><div class="check-icon">X</div><div class="text-content"><h4>1 EC2 (Tắc nghẽn)</h4></div></li>
+                        <li><div class="check-icon">X</div><div class="text-content"><h4>1 DB (Nguy cơ)</h4></div></li>
+                        <li><div class="check-icon">X</div><div class="text-content"><h4>No Monitoring</h4></div></li>
+                    </ul>
+                </div>
+                <div class="right-pane text-pane offset-y">
+                    <h2 class="section-title">AWS PRODUCTIONS</h2>
+                    <ul class="checklist mt-4">
+                        <li><div class="check-icon">✓</div><div class="text-content"><h4>Cognito Auth Shield</h4></div></li>
+                        <li><div class="check-icon">✓</div><div class="text-content"><h4>Auto Scaling Farm</h4></div></li>
+                        <li><div class="check-icon">✓</div><div class="text-content"><h4>Multi-AZ DB Failover</h4></div></li>
+                        <li><div class="check-icon">✓</div><div class="text-content"><h4>CloudWatch 24/7</h4></div></li>
+                        <li><div class="check-icon">✓</div><div class="text-content"><h4>AWS WAF Firewall</h4></div></li>
+                    </ul>
                 </div>
             </div>
 
-            <footer class="slide-footer">
-                <div class="website-link"><span class="dot"></span> www.ev-system.com</div>
-                <div class="page-pill">Page 12</div>
-            </footer>
+            <footer class="slide-footer right-only"><div class="page-pill">Page 12</div></footer>
         </section>
 
     </div>
-    <script>
-        document.addEventListener('keydown', function(event) {
-            let currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            let currentIndex = 1;
-            if (currentPath.startsWith('slide-')) {
-                let match = currentPath.match(/slide-(\d+).html/);
-                if (match) currentIndex = parseInt(match[1], 10);
-            }
-
-            if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === 'PageDown') {
-                let next = currentIndex + 1;
-                if (next <= 12) window.location.href = "slide-" + next + ".html";
-            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'PageUp') {
-                let prev = currentIndex - 1;
-                if (prev === 1) window.location.href = "index.html";
-                else if (prev > 1) window.location.href = "slide-" + prev + ".html";
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

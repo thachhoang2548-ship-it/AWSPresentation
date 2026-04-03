@@ -11,8 +11,8 @@
 <body>
     <div class="presentation-container" id="presentation">
 
-                <!-- ================= SLIDE 8 ================= -->
-        <section class="slide theme-light" id="slide-8">
+                <!-- ================= SLIDE 7 ================= -->
+        <section class="slide theme-dark" id="slide-8">
             <header class="slide-header" style="display: flex; justify-content: space-between;">
                 <div class="header-left" style="display: flex; align-items: center; gap: 1.5rem;">
                     <div class="partner-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/FPT_logo_2010.svg" alt="FPT University"></div>
@@ -22,62 +22,42 @@
                     <div class="partner-logo pt-aws"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS"></div>
                 </div>
             </header>
-            <div class="bg-block left-tall-dark"></div>
-            
-            <div class="content list-layout">
-                <div class="left-pane stacked-images">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop" alt="Monitor1" class="img-top shadow-img">
-                </div>
-                <div class="right-pane text-pane">
-                    <h2 class="section-title">MONITORING SYSTEM</h2>
-                    <ul class="checklist mt-4">
-                        <li>
-                            <div class="check-icon">✓</div>
-                            <div class="text-content">
-                                <h4>CloudWatch Metrics</h4>
-                                <p>Dữ liệu thời gian thực: CPU EC2, Memory, Network In/Out.</p>
+            <div class="bg-block right-light-fade"></div>
+
+            <div class="content dark-split-pills">
+                <div class="text-pane w-wider">
+                    <h2 class="section-title text-white">SECURITY LAYERS</h2>
+                    
+                    <div class="pill-cards-container mt-4">
+                        <div class="info-pill-card stagger-1">
+                            <div class="number">01.</div>
+                            <div class="body">
+                                <h4>Security Group</h4>
+                                <p>Wall rào 80/443. RDS cấm toàn bộ Internet tải về, chỉ cho phép EC2.</p>
                             </div>
-                        </li>
-                        <li>
-                            <div class="check-icon">✓</div>
-                            <div class="text-content">
-                                <h4>Centralized Logs</h4>
-                                <p>Gom Logs của Nginx & Spring Boot tại một chỗ để truy xuất ngay khi lỗi.</p>
+                        </div>
+                        <div class="info-pill-card stagger-2">
+                            <div class="number">02.</div>
+                            <div class="body">
+                                <h4>AWS WAF</h4>
+                                <p>Lá chắn Web chặn Hacker dùng SQL Injection & XSS.</p>
                             </div>
-                        </li>
-                        <li>
-                            <div class="check-icon">✓</div>
-                            <div class="text-content">
-                                <h4>Trigger Alert</h4>
-                                <p>Cảnh báo khẩn khi CPU > 80% hoặc ping chết (Server Down).</p>
+                        </div>
+                        <div class="info-pill-card stagger-3">
+                            <div class="number">03.</div>
+                            <div class="body">
+                                <h4>Private Subnet</h4>
+                                <p>Cơ sở dữ liệu Database nằm trong bóng tối mạng ngầm (Không mở Public).</p>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-
+            
             <footer class="slide-footer right-only"><div class="page-pill">Page 08</div></footer>
         </section>
 
     </div>
-    <script>
-        document.addEventListener('keydown', function(event) {
-            let currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            let currentIndex = 1;
-            if (currentPath.startsWith('slide-')) {
-                let match = currentPath.match(/slide-(\d+).html/);
-                if (match) currentIndex = parseInt(match[1], 10);
-            }
-
-            if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === 'PageDown') {
-                let next = currentIndex + 1;
-                if (next <= 12) window.location.href = "slide-" + next + ".html";
-            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'PageUp') {
-                let prev = currentIndex - 1;
-                if (prev === 1) window.location.href = "index.html";
-                else if (prev > 1) window.location.href = "slide-" + prev + ".html";
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

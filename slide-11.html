@@ -11,39 +11,29 @@
 <body>
     <div class="presentation-container" id="presentation">
 
-                <!-- ================= SLIDE 11 ================= -->
-        <section class="slide theme-light" id="slide-11">
+                <!-- ================= SLIDE 10 ================= -->
+        <section class="slide theme-dark" id="slide-11">
             <header class="slide-header" style="display: flex; justify-content: space-between;">
                 <div class="header-left" style="display: flex; align-items: center; gap: 1.5rem;">
                     <div class="partner-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/FPT_logo_2010.svg" alt="FPT University"></div>
-                    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span>EV SYSTEM PITCH DECK</span></div>
+                    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span>EV SYSTEM</span></div>
                 </div>
                 <div class="header-right" style="display: flex; align-items: center; gap: 1.5rem;">
                     <div class="partner-logo pt-aws"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS"></div>
                 </div>
             </header>
-
-            <div class="bg-block left-tall-dark" style="width: 25vw"></div>
             
-            <div class="content list-layout">
-                <div class="left-pane text-pane text-white relative-z">
-                    <h2 class="section-title text-white">BEFORE AWS</h2>
-                    <ul class="checklist error-list mt-4">
-                        <li><div class="check-icon">X</div><div class="text-content"><h4>No Auth</h4></div></li>
-                        <li><div class="check-icon">X</div><div class="text-content"><h4>1 EC2 (Tắc nghẽn)</h4></div></li>
-                        <li><div class="check-icon">X</div><div class="text-content"><h4>1 DB (Nguy cơ)</h4></div></li>
-                        <li><div class="check-icon">X</div><div class="text-content"><h4>No Monitoring</h4></div></li>
-                    </ul>
-                </div>
-                <div class="right-pane text-pane offset-y">
-                    <h2 class="section-title">AWS PRODUCTIONS</h2>
-                    <ul class="checklist mt-4">
-                        <li><div class="check-icon">✓</div><div class="text-content"><h4>Cognito Auth Shield</h4></div></li>
-                        <li><div class="check-icon">✓</div><div class="text-content"><h4>Auto Scaling Farm</h4></div></li>
-                        <li><div class="check-icon">✓</div><div class="text-content"><h4>Multi-AZ DB Failover</h4></div></li>
-                        <li><div class="check-icon">✓</div><div class="text-content"><h4>CloudWatch 24/7</h4></div></li>
-                        <li><div class="check-icon">✓</div><div class="text-content"><h4>AWS WAF Firewall</h4></div></li>
-                    </ul>
+            <div class="content align-center mt-up">
+                <h2 class="section-title text-center text-white">END-TO-END SUMMARY</h2>
+            </div>
+            
+            <div class="content card-row-layout mt-4">
+                <div class="horizontal-card-list">
+                    <div class="row-step"><span>1</span> User -> CloudFront -> S3 (Tải Frontend)</div>
+                    <div class="row-step"><span>2</span> Frontend gọi lên API (Route53 -> ALB)</div>
+                    <div class="row-step"><span>3</span> ALB Load Balance bắn vào đám EC2 AWS (ASG)</div>
+                    <div class="row-step"><span>4</span> EC2 gọi Backend Java xử lý thanh toán (DB + Mail)</div>
+                    <div class="row-step highlight"><span>5</span> Server phản hồi nhanh chóng lên màn hình User!</div>
                 </div>
             </div>
 
@@ -51,24 +41,6 @@
         </section>
 
     </div>
-    <script>
-        document.addEventListener('keydown', function(event) {
-            let currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            let currentIndex = 1;
-            if (currentPath.startsWith('slide-')) {
-                let match = currentPath.match(/slide-(\d+).html/);
-                if (match) currentIndex = parseInt(match[1], 10);
-            }
-
-            if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === 'PageDown') {
-                let next = currentIndex + 1;
-                if (next <= 12) window.location.href = "slide-" + next + ".html";
-            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'PageUp') {
-                let prev = currentIndex - 1;
-                if (prev === 1) window.location.href = "index.html";
-                else if (prev > 1) window.location.href = "slide-" + prev + ".html";
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

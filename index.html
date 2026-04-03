@@ -27,8 +27,9 @@
                 <div class="header-right" style="display: flex; align-items: center; gap: 1.5rem;">
                     <nav class="top-nav">
                         <a href="#slide-1" class="pill active">Home</a>
-                        <a href="#slide-2" class="pill">Architecture</a>
-                        <a href="#slide-12" class="pill">Contact</a>
+                        <a href="#slide-2" class="pill">Team</a>
+                        <a href="#slide-3" class="pill">Architecture</a>
+                        <a href="#slide-13" class="pill">Contact</a>
                         <div class="hamburger"><span></span><span></span><span></span></div>
                     </nav>
                     <div class="partner-logo pt-aws">
@@ -53,24 +54,6 @@
         </section>
 
     </div>
-    <script>
-        document.addEventListener('keydown', function(event) {
-            let currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            let currentIndex = 1;
-            if (currentPath.startsWith('slide-')) {
-                let match = currentPath.match(/slide-(\d+).html/);
-                if (match) currentIndex = parseInt(match[1], 10);
-            }
-
-            if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === 'PageDown') {
-                let next = currentIndex + 1;
-                if (next <= 12) window.location.href = "slide-" + next + ".html";
-            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'PageUp') {
-                let prev = currentIndex - 1;
-                if (prev === 1) window.location.href = "index.html";
-                else if (prev > 1) window.location.href = "slide-" + prev + ".html";
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

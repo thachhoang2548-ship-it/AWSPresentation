@@ -11,52 +11,44 @@
 <body>
     <div class="presentation-container" id="presentation">
 
-                <!-- ================= SLIDE 4 ================= -->
-        <section class="slide theme-light" id="slide-4">
+                <!-- ================= SLIDE 3 ================= -->
+        <section class="slide theme-dark" id="slide-4">
             <header class="slide-header" style="display: flex; justify-content: space-between;">
                 <div class="header-left" style="display: flex; align-items: center; gap: 1.5rem;">
                     <div class="partner-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/FPT_logo_2010.svg" alt="FPT University"></div>
-                    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span>EV SYSTEM PITCH DECK</span></div>
+                    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span>EV SYSTEM</span></div>
                 </div>
                 <div class="header-right" style="display: flex; align-items: center; gap: 1.5rem;">
                     <div class="partner-logo pt-aws"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS"></div>
                 </div>
             </header>
 
-            <div class="bg-block left-tall-dark"></div>
-            <div class="bg-block right-top-dark"></div>
+            <div class="bg-block right-light-fade"></div>
 
-            <div class="content list-layout">
-                <div class="left-pane stacked-images">
-                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop" alt="Code" class="img-top shadow-img">
-                    <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=600&auto=format&fit=crop" alt="Server" class="img-bottom shadow-img">
+            <div class="content dark-split-pills">
+                <div class="text-pane">
+                    <h2 class="section-title text-white">FRONTEND FLOW</h2>
+                    <p class="desc-text mt-2">Luồng Frontend tĩnh đảm bảo tải mượt mà dưới 1 giây. User request đi vào hệ thống sẽ qua các trạm:</p>
+                    
+                    <div class="pill-cards-container mt-4">
+                        <div class="info-pill-card stagger-1">
+                            <div class="number">01.</div>
+                            <div class="body">
+                                <h4>Amazon CloudFront</h4>
+                                <p>Đóng vai trò CDN (Content Delivery). Tối ưu Latency toàn cầu.</p>
+                            </div>
+                        </div>
+                        <div class="info-pill-card stagger-2">
+                            <div class="number">02.</div>
+                            <div class="body">
+                                <h4>Amazon S3</h4>
+                                <p>Host tĩnh Frontend ReactJS với độ bền dữ liệu (Durability) 99.999%.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="right-pane text-pane offset-y">
-                    <h2 class="section-title">BACKEND FLOW</h2>
-                    <ul class="checklist mt-4">
-                        <li>
-                            <div class="check-icon">✓</div>
-                            <div class="text-content">
-                                <h4>Load Balancer (ALB)</h4>
-                                <p>Phân phối tải thông minh từ Route53 xuống các máy con.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="check-icon">✓</div>
-                            <div class="text-content">
-                                <h4>Auto Scaling EC2</h4>
-                                <p>Tự động co giãn số lượng Instance theo mức độ Traffic.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="check-icon">✓</div>
-                            <div class="text-content">
-                                <h4>Spring Boot & RDS</h4>
-                                <p>Xử lý Logic thanh toán và lưu truy xuất cơ sở dữ liệu.</p>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="image-pane">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="Metrics" class="rounded-image blend-edge">
                 </div>
             </div>
 
@@ -66,24 +58,6 @@
         </section>
 
     </div>
-    <script>
-        document.addEventListener('keydown', function(event) {
-            let currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            let currentIndex = 1;
-            if (currentPath.startsWith('slide-')) {
-                let match = currentPath.match(/slide-(\d+).html/);
-                if (match) currentIndex = parseInt(match[1], 10);
-            }
-
-            if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === 'PageDown') {
-                let next = currentIndex + 1;
-                if (next <= 12) window.location.href = "slide-" + next + ".html";
-            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'PageUp') {
-                let prev = currentIndex - 1;
-                if (prev === 1) window.location.href = "index.html";
-                else if (prev > 1) window.location.href = "slide-" + prev + ".html";
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

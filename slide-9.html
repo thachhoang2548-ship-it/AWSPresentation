@@ -11,7 +11,7 @@
 <body>
     <div class="presentation-container" id="presentation">
 
-                <!-- ================= SLIDE 9 ================= -->
+                <!-- ================= SLIDE 8 ================= -->
         <section class="slide theme-light" id="slide-9">
             <header class="slide-header" style="display: flex; justify-content: space-between;">
                 <div class="header-left" style="display: flex; align-items: center; gap: 1.5rem;">
@@ -22,43 +22,44 @@
                     <div class="partner-logo pt-aws"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS"></div>
                 </div>
             </header>
-            <div class="bg-block top-left-dark"></div>
+            <div class="bg-block left-tall-dark"></div>
             
-            <div class="content split-light-layout">
-                <div class="left-pane image-pane">
-                    <img src="https://images.unsplash.com/photo-1587614387653-34e405ab1c61?q=80&w=600&auto=format&fit=crop" alt="Email" class="rounded-image shadow-img">
+            <div class="content list-layout">
+                <div class="left-pane stacked-images">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop" alt="Monitor1" class="img-top shadow-img">
                 </div>
                 <div class="right-pane text-pane">
-                    <h2 class="section-title">EMAIL SERVICE</h2>
-                    <h3 class="subtitle-text mt-2">Dùng Amazon SES để thông báo</h3>
-                    <p class="desc-text mt-3">Giao tiếp Backend -> SES -> User hòm thư.</p>
-                    <p class="desc-text mt-2 text-bold">Tích hợp Route53 Verification</p>
-                    <p class="desc-text">Xác minh Domain (TXT, DKIM) để chống vô sọt rác Spam. (Không dùng Root53 để route traffic ở trường hợp này).</p>
+                    <h2 class="section-title">MONITORING SYSTEM</h2>
+                    <ul class="checklist mt-4">
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <div class="text-content">
+                                <h4>CloudWatch Metrics</h4>
+                                <p>Dữ liệu thời gian thực: CPU EC2, Memory, Network In/Out.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <div class="text-content">
+                                <h4>Centralized Logs</h4>
+                                <p>Gom Logs của Nginx & Spring Boot tại một chỗ để truy xuất ngay khi lỗi.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <div class="text-content">
+                                <h4>Trigger Alert</h4>
+                                <p>Cảnh báo khẩn khi CPU > 80% hoặc ping chết (Server Down).</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            
+
             <footer class="slide-footer right-only"><div class="page-pill">Page 09</div></footer>
         </section>
 
     </div>
-    <script>
-        document.addEventListener('keydown', function(event) {
-            let currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            let currentIndex = 1;
-            if (currentPath.startsWith('slide-')) {
-                let match = currentPath.match(/slide-(\d+).html/);
-                if (match) currentIndex = parseInt(match[1], 10);
-            }
-
-            if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === 'PageDown') {
-                let next = currentIndex + 1;
-                if (next <= 12) window.location.href = "slide-" + next + ".html";
-            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'PageUp') {
-                let prev = currentIndex - 1;
-                if (prev === 1) window.location.href = "index.html";
-                else if (prev > 1) window.location.href = "slide-" + prev + ".html";
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
